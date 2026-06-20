@@ -54,7 +54,7 @@ jobs:
       run: |
         git clone -b ${{ matrix.branch }} https://github.com/Netflix/vmaf
         cd vmaf/libvmaf
-        meson build --buildtype release --default-library static -Dbuilt_in_models=true --prefix=/mingw64/
+        meson build --buildtype release --default-library static -Dbuilt_in_models=true -Denable_float=true --prefix=/mingw64/
         ninja -vC build install
         echo Libs.private: -lstdc++>>"D:\msys2_github\msys64\mingw64\lib\pkgconfig\libvmaf.pc"
     - name: build_ffmpeg
